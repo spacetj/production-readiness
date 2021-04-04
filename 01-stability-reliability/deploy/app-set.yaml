@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: todo
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/spacetj/production-readiness.git
+      revision: HEAD
+      directories:
+      - path: 01-stability-reliability/deploy/manifests/*
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/spacetj/production-readiness.git
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{path.basename}}'

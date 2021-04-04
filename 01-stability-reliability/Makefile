@@ -36,7 +36,13 @@ build.pack: install.pack
 build.ko: install.ko
 	KO_DOCKER_REPO=${GCR_IMAGE}/ko ko publish ./cmd/todo
 
+manifests:
+	helm template --name todo ./deploy/helm -f ./deploy/config/dev.yaml > ./deploy/manifests/dev/output.yaml
+	helm template --name todo ./deploy/helm -f ./deploy/config/qa.yaml > ./deploy/manifests/qa/output.yaml
+	helm template --name todo ./deploy/helm -f ./deploy/config/stage.yaml > ./deploy/manifests/stage/output.yaml
+
 manifests.helm: install.helm
+	rm -rf ./deploy/output/helm/*
 	helm template --name todo ./deploy/helm -f ./deploy/config/dev.yaml > ./deploy/output/helm.yaml
 
 manifests.ko: install.ko
@@ -59,8 +65,15 @@ clean:
 	kubectl delete -f ./output/ --ignore-not-found=true
 
 deploy.argocd: install.argocd
-	kubectl create namespace argocd
+	kubectl create namespace argocd --dry-run -o yaml | kubectl apply -f -
 	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj-labs/applicationset/v0.1.0/manifests/install.yaml
+
+argo.setup:
+	argocd app create todo-dev --repo https://github.com/spacetj/production-readiness.git --path 01-stability-reliability/deploy/output/ --dest-server https://kubernetes.default.svc --dest-namespace dev
+
+argo.sync:
+	argocd app sync todo-dev --local ./deploy/output
 
 deps: install.golangci-lint install.kind install.skaffold install.ko install.tanka install.helm install.pack install.argocd
 
