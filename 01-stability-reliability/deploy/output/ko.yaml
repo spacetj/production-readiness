@@ -69,4 +69,5 @@ spec:
               path: /
               port: http
           resources: {}
+
 ---
