@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/instance: todo
+    app.kubernetes.io/managed-by: Tanka
+    app.kubernetes.io/name: todo
+  name: todo
+  namespace: dev
+spec:
+  minReadySeconds: 10
+  replicas: 3
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: todo
+  template:
+    metadata:
+      labels:
+        name: todo
+    spec:
+      containers:
+      - envFrom:
+        - secretRef:
+            name: db-auth
+        image: gcr.io/sandbox-project-tc/todo:latest
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+            path: /
+            port: http
+        name: todo
+        ports:
+        - containerPort: 8000
+          name: http
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http

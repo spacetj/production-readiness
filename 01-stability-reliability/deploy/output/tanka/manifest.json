@@ -1,0 +1,5 @@
+{
+    "apps-v1.Deployment-todo.yaml": "environments/dev/main.jsonnet",
+    "v1.Secret-db-auth.yaml": "environments/dev/main.jsonnet",
+    "v1.Service-todo.yaml": "environments/dev/main.jsonnet"
+}

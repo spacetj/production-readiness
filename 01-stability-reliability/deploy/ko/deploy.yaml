@@ -1,0 +1,76 @@
+# Source: todo/templates/db-auth.yaml
+apiVersion: v1
+data:
+  POSTGRES_PASSWORD: MTIzNA==
+  POSTGRES_USER: ZGVtbw==
+kind: Secret
+metadata:
+  creationTimestamp: null
+  name: db-auth
+
+---
+# Source: todo/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: todo
+  labels:
+    app.kubernetes.io/name: todo
+    helm.sh/chart: todo-0.1.0
+    app.kubernetes.io/instance: todo
+    app.kubernetes.io/managed-by: Tiller
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8000
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: todo
+    app.kubernetes.io/instance: todo
+
+---
+# Source: todo/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo
+  labels:
+    app.kubernetes.io/name: todo
+    helm.sh/chart: todo-0.1.0
+    app.kubernetes.io/instance: todo
+    app.kubernetes.io/managed-by: Tiller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: todo
+      app.kubernetes.io/instance: todo
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: todo
+        app.kubernetes.io/instance: todo
+    spec:
+      containers:
+        - name: todo
+          image: ko://01-stability-reliability/cmd/todo
+          imagePullPolicy: 
+          envFrom:
+            - secretRef:
+                name: db-auth
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {}
