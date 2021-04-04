@@ -1,0 +1,23 @@
+apiVersion: skaffold/v1beta15
+kind: Config
+metadata:
+  name: todo
+build:
+  tagPolicy:
+    dateTime:
+      format: "2006-01-02_15-04-05.999_MST"
+      timezone: "Local"
+  artifacts:
+  - image: gcr.io/sandbox-project-tc/todo
+deploy:
+  kubectl:
+    manifests:
+    - deploy/output/helm.yaml
+    flags:
+      global: # additional flags passed on every command.
+      - --namespace=dev
+portForward:
+- resourceType: deployment
+  resourceName: todo
+  namespace: dev
+  port: 8000

@@ -1,0 +1,41 @@
+# github.com/go-pg/pg v8.0.7+incompatible
+github.com/go-pg/pg
+github.com/go-pg/pg/internal
+github.com/go-pg/pg/internal/iszero
+github.com/go-pg/pg/internal/parser
+github.com/go-pg/pg/internal/pool
+github.com/go-pg/pg/internal/struct_filter
+github.com/go-pg/pg/internal/tag
+github.com/go-pg/pg/orm
+github.com/go-pg/pg/types
+# github.com/jinzhu/inflection v1.0.0
+github.com/jinzhu/inflection
+# github.com/labstack/echo v3.3.10+incompatible
+github.com/labstack/echo
+# github.com/labstack/gommon v0.3.0
+github.com/labstack/gommon/color
+github.com/labstack/gommon/log
+# github.com/mattn/go-colorable v0.1.8
+github.com/mattn/go-colorable
+# github.com/mattn/go-isatty v0.0.12
+github.com/mattn/go-isatty
+# github.com/valyala/bytebufferpool v1.0.0
+github.com/valyala/bytebufferpool
+# github.com/valyala/fasttemplate v1.2.1
+github.com/valyala/fasttemplate
+# golang.org/x/crypto v0.0.0-20210322153248-0c34fe9e7dc2
+golang.org/x/crypto/acme
+golang.org/x/crypto/acme/autocert
+golang.org/x/crypto/pbkdf2
+# golang.org/x/net v0.0.0-20210331212208-0fccb6fa2b5c
+golang.org/x/net/idna
+# golang.org/x/sys v0.0.0-20210402192133-700132347e07
+golang.org/x/sys/internal/unsafeheader
+golang.org/x/sys/unix
+# golang.org/x/text v0.3.6
+golang.org/x/text/secure/bidirule
+golang.org/x/text/transform
+golang.org/x/text/unicode/bidi
+golang.org/x/text/unicode/norm
+# mellium.im/sasl v0.2.1
+mellium.im/sasl
