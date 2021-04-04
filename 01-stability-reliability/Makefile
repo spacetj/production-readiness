@@ -64,16 +64,20 @@ cluster: install.kind
 clean:
 	kubectl delete -f ./output/ --ignore-not-found=true
 
+argo: deploy.argocd argo.setup argo.sync
+
 deploy.argocd: install.argocd
 	kubectl create namespace argocd --dry-run -o yaml | kubectl apply -f -
 	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj-labs/applicationset/v0.1.0/manifests/install.yaml
 
 argo.setup:
-	argocd app create todo-dev --repo https://github.com/spacetj/production-readiness.git --path 01-stability-reliability/deploy/output/ --dest-server https://kubernetes.default.svc --dest-namespace dev
+	kubectl apply -f ./deploy/app-set.yaml
 
 argo.sync:
-	argocd app sync todo-dev --local ./deploy/output
+	argocd app sync dev
+	argocd app sync qa
+	argocd app sync stage
 
 deps: install.golangci-lint install.kind install.skaffold install.ko install.tanka install.helm install.pack install.argocd
 

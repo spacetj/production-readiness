@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: gcr.io/sandbox-project-tc/todo
+  repository: gcr.io/sandbox-project-tc/todo/kaniko
   tag: latest
 
 nameOverride: ""
