@@ -79,7 +79,10 @@ argo.sync:
 	argocd app sync qa
 	argocd app sync stage
 
-deps: install.golangci-lint install.kind install.skaffold install.ko install.tanka install.helm install.pack install.argocd
+ui: install.octant
+	octant
+
+deps: install.golangci-lint install.kind install.skaffold install.ko install.tanka install.helm install.pack install.argocd install.octant
 
 install.kind:
 ifeq (, $(shell which kind))
@@ -149,4 +152,12 @@ ifeq (, $(shell which argocd))
 	brew install argocd
 else
 	@echo "✅ argocd found"
+endif
+
+install.octant:
+ifeq (, $(shell which octant))
+	@echo "🤖  octant not found. installing"
+	brew install octant
+else
+	@echo "✅ octant found"
 endif

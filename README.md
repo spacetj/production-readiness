@@ -7,24 +7,18 @@ This repo is part of the 4 series blog posts which covers cloud native tooling t
 
 ## Stability and Reliability
 
-Following tools enable building stable and reliable applications which are tested and packaged with stable CI / CD processes.
+Blog: [CloudNative Production Readiness Part 1](https://tejasc.com/cnpr-part1/)
 
-### Testing and Debugging
+Following tools enable building stable and reliable applications which are tested and packaged with stable CI / CD processes. 
 
-- KIND
-- Squash
-
-### Application Packaging
-
-- Docker
-- Kaniko
-- Buildpack
-- KO
-
-### Manifest Packaging
-
-- Helm
-- Tanka
-- KO
-
----
+| Category              | Tools     |
+| --------------------- | --------- |
+| Application Packaging | Docker    |
+|                       | Kaniko    |
+|                       | Buildpack |
+|                       | KO        |
+| Local Testing         | Kind      |
+| Manifest Packaging    | Helm      |
+|                       | Tanka     |
+|                       | KO        |
+| CD                    | ArgoCD    |
