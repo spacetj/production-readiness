@@ -2,7 +2,7 @@
 
 What does it mean for an application to be production ready? Thankfully industry leaders a lot smarter than me have given this a lot of thought!
 
-If you havn't come across these resources yet, it is recommended  to go through them before reading this post:
+If you havn't come across these resources yet, it is recommended to go through them first:
 
 - 📹 [Building Production Ready Application][production-ready-talk] by Michael Kehoe
 - 📕 [Production-Ready Microservices][production-readiness-book] by Susan J. Fowler
@@ -18,7 +18,7 @@ There are 8 main tenets of production readiness that are highlighted in these re
 - 🔍 Monitoring
 - 📕 Documentation
 
-As technology evolves, several tools have emerged which helps achieve the tenets of production readiness mentioned above. This repo is part of the 4 series blog posts which covers cloud native tooling that enables application production readiness. The blogs can be found [here](https://tejasc.com/).
+As technology evolves, several tools have emerged which helps achieve the tenets of production readiness mentioned above. This repo is part of a 4 series blog post which covers cloud native tooling that enables application production readiness. The blogs can be found [here](https://tejasc.com/).
 
 **DISCLAIMER** The tools mentioned in this blog are just examples of tools available, and might not be the best suited for your usecase. The blog can serve as a starting point to research the tools that is most appropriate for your ecosystem.
 
@@ -48,3 +48,11 @@ Following tools have been demoed which helps build stable and reliable applicati
 |                       | Tanka     |
 |                       | KO        |
 | CD                    | ArgoCD    |
+
+<!-- Links  -->
+
+[production-readiness-book]: https://www.amazon.com.au/Production-Ready-Microservices-Standardized-Engineering-Organization/dp/1491965975/ref=asc_df_1491965975/?tag=googleshopdsk-22&linkCode=df0&hvadid=341791741598&hvpos=&hvnetw=g&hvrand=11583469740343046994&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9071462&hvtargid=pla-504426002607&psc=1
+
+[production-ready-talk]: https://www.infoq.com/presentations/production-ready-applications/
+
+[cncf-landspace]: https://landscape.cncf.io/

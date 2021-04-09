@@ -4,16 +4,20 @@
 - Sample App: [demo-go-postgres repo](https://github.com/rsmcode/demo-go-postgres)
 
 The following cloud native tools helps implement:
-- build and packaged in a standardized and automated fashion
-- standardized development, testing and debugging cycles
 
-### Prerequisite
+- build and package in a standardized and automated fashion
+- standardize development, testing and debugging cycles
+
+## Prerequisite
 
 ```bash
 make deps
 ```
 
-Assuming homebrew is installed, the above command will install the following tools:
+> Only execute this command if you're on a mac and you have brew installed
+
+The command will install the following tools:
+
 - GolangCI-Lint
 - Kind
 - Skaffold
@@ -48,7 +52,7 @@ The command builds a docker image using the instructions defined in the [Dockerf
 
 ### Kaniko
 
-kaniko is a tool to build container images from a Dockerfile, inside a container or Kubernetes cluster. kaniko doesn't depend on a Docker daemon and executes each command within a Dockerfile completely in userspace. This enables building container images in environments that can't easily or securely run a Docker daemon, such as a standard Kubernetes cluster.
+kaniko is a tool to build container images from a Dockerfile, inside a container or Kubernetes cluster. kaniko doesn't require a Docker daemon and executes each commands in userspace. This enables building container images in environments that can't easily or securely run a Docker daemon.
 
 | Open Source                                              | Managed By | First Release |
 | -------------------------------------------------------- | ---------- | ------------- |
@@ -105,7 +109,7 @@ For a deeper comparision of KO and Buildpack, checkout the [Google Cloud Blog](h
 make build.ko
 ```
 
-The command install `ko` and uses KO to create and push docker image to gcr registry.
+The command installs `ko` and uses `ko` to create and push docker image to gcr registry.
 
 ---
 
@@ -154,7 +158,7 @@ The command installs `helm` and uses the [helm chart](./deploy/helm) to template
 
 ### Tanka
 
-Grafana Tanka is the robust configuration utility for your Kubernetes cluster, powered by the unique Jsonnet language. Our Kubernetes Jsonnet library makes defining of Kubernetes resources more concise and clean than traditional YAML has ever been.
+Grafana Tanka is a robust configuration utility for your Kubernetes cluster, powered by the unique Jsonnet language. Kubernetes Jsonnet library makes defining of Kubernetes resources more concise and clean than traditional YAML has ever been.
 
 | Open Source                                | Managed By | First Release |
 | ------------------------------------------ | ---------- | ------------- |
