@@ -64,17 +64,13 @@ cluster: install.kind
 clean:
 	kubectl delete -f ./output/ --ignore-not-found=true
 
-argo: deploy.argocd argo.setup argo.sync
-
-deploy.argocd: install.argocd
+argo.setup: install.argocd
 	kubectl create namespace argocd --dry-run -o yaml | kubectl apply -f -
 	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj-labs/applicationset/v0.1.0/manifests/install.yaml
 
-argo.setup:
+argo:
 	kubectl apply -f ./deploy/app-set.yaml
-
-argo.sync:
 	argocd app sync dev
 	argocd app sync qa
 	argocd app sync stage
