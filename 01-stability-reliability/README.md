@@ -30,7 +30,7 @@ The command will install the following tools:
 
 ## Application Containerization
 
-<img src="./assets/docker.png" width="100px" height="100px" align="left" style="padding-right:15px"/>
+<img src="./assets/docker.png" width="100px" height="80px" align="left" style="padding-right:15px"/>
 
 ### Docker
 
@@ -115,7 +115,7 @@ The command installs `ko` and uses `ko` to create and push docker image to gcr r
 
 ## Local Testing
 
-<img src="./assets/kind.png" width="100px" height="60px" align="left" style="padding-right:15px"/>
+<img src="./assets/kind.png" width="100px" height="65px" align="left" style="padding-right:15px"/>
 
 ### KIND (Kubernetes in Docker)
 
@@ -220,7 +220,7 @@ Skaffold consumes a [skaffold.yaml](./skaffold.yaml) to define image building, t
 
 ---
 
-<img src="./assets/octant.png" width="100px" height="40px" align="left" style="padding-right:15px"/>
+<img src="./assets/octant.png" width="130px" height="40px" align="left" style="padding-right:15px"/>
 
 ### Octant
 
