@@ -30,11 +30,11 @@ The command will install the following tools:
 
 ## Application Containerization
 
-<img src="./assets/docker.png" width="100px" height="100px" align="left" style="padding-right:15px"/>
+<img src="./assets/docker.png" width="100px" height="80px" align="left" style="padding-right:15px"/>
 
 ### Docker
 
-Docker is a software platform for building applications based on containers — small and lightweight execution environments that make shared use of the operating system kernel but otherwise run in isolation from one another. Utilises Dockerfile, context and Docker Daemon to build docker image.
+Docker is a tool for building applications based on containers — lightweight execution environments that shares the operating system kernel but otherwise runs in isolation from one another. Utilises Dockerfile, context and Docker Daemon to build docker image.
 
 | Open Source                         | Managed By | First Release |
 | ----------------------------------- | ---------- | ------------- |
@@ -52,7 +52,7 @@ The command builds a docker image using the instructions defined in the [Dockerf
 
 ### Kaniko
 
-kaniko is a tool to build container images from a Dockerfile, inside a container or Kubernetes cluster. kaniko doesn't require a Docker daemon and executes each commands in userspace. This enables building container images in environments that can't easily or securely run a Docker daemon.
+kaniko is a tool for building container images from a Dockerfile. Kaniko doesn't require a Docker daemon and executes each commands in userspace. This enables building container images in environments that can't easily or securely run a Docker daemon, such as a kubernetes cluster.
 
 | Open Source                                              | Managed By | First Release |
 | -------------------------------------------------------- | ---------- | ------------- |
@@ -90,7 +90,7 @@ The command install `pack` and uses Google Buildpack (gcr.io/buildpacks/builder:
 
 ### KO
 
-Ideal for use cases where your image contains a single Go application without any/many dependencies on the OS base image (e.g., no cgo, no OS package dependencies). ko builds images by effectively executing go build on your local machine, and as such doesn't require docker to be installed. ko does its job without requiring you to write a Dockerfile or even install Docker itself on your machine.
+ko builds images by effectively executing go build on your local machine, and as such doesn't require a Dockerfile or docker to be installed. Ideal for use cases where your image contains a single Go application without any dependencies on the OS base image (e.g., no cgo, no OS package dependencies).
 
 This is what ko does:
 - Download a base image from a container registry
@@ -115,7 +115,7 @@ The command installs `ko` and uses `ko` to create and push docker image to gcr r
 
 ## Local Testing
 
-<img src="./assets/kind.png" width="100px" height="60px" align="left" style="padding-right:15px"/>
+<img src="./assets/kind.png" width="100px" height="65px" align="left" style="padding-right:15px"/>
 
 ### KIND (Kubernetes in Docker)
 
@@ -140,7 +140,7 @@ The command installs `kind` and uses that to create a kubernetes cluster. Any im
 
 ### Helm
 
-Helm uses charts, a collection of files that describe a related set of Kubernetes resources. A single chart might be used to deploy something simple, like a memcached pod, or something complex, like a full web app stack with HTTP servers, databases, caches, and so on. Charts are created as files laid out in a particular directory tree. They can be packaged into versioned archives to be deployed.
+Helm uses charts, a collection of files that describe a related set of Kubernetes resources. Charts are created as files laid out in a particular directory tree. They can be packaged into versioned archives to be deployed. Helm uses Sprig template library to help template the yaml files and values can be defined in single or multiple value files.
 
 | Open Source                            | Managed By | First Release |
 | -------------------------------------- | ---------- | ------------- |
@@ -197,7 +197,7 @@ make manifests.ko
 
 ### Skaffold
 
-Skaffold is a command line tool that facilitates continuous development for Kubernetes-native applications. Skaffold handles the workflow for building, pushing, and deploying your application, and provides building blocks for creating CI/CD pipelines. This enables you to focus on iterating on your application locally while Skaffold continuously deploys to your local or remote Kubernetes cluster.
+Skaffold handles the workflow for building, pushing, and deploying your application, allowing devs to get started quickly. This enables you to focus on iterating on your application locally while Skaffold continuously deploys to your local or remote Kubernetes cluster.
 
 | Open Source                                                | Managed By | First Release |
 | ---------------------------------------------------------- | ---------- | ------------- |
@@ -220,7 +220,7 @@ Skaffold consumes a [skaffold.yaml](./skaffold.yaml) to define image building, t
 
 ---
 
-<img src="./assets/octant.png" width="100px" height="40px" align="left" style="padding-right:15px"/>
+<img src="./assets/octant.png" width="130px" height="40px" align="left" style="padding-right:15px"/>
 
 ### Octant
 
