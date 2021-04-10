@@ -3,11 +3,11 @@ APP_NAME := todo
 CLUSTER_NAME := ${APP_NAME}
 GCR_IMAGE := "gcr.io/${PROJECT_ID}/${APP_NAME}"
 
-dev: install.skaffold env manifests.helm
+dev: env manifests.helm
 	kubectl apply -f deploy/output/psql.yaml
 	skaffold dev --no-prune=false --cache-artifacts=false --port-forward
 
-build.go: install.golangci-lint
+build.go:
 	go clean ./...
 	go mod tidy && go mod vendor
 	go fmt ./...
@@ -29,11 +29,11 @@ build.kaniko:
 		--cache=true \
 		--cache-repo "${GCR_IMAGE}/cache"
 
-build.pack: install.pack
+build.pack:
 	pack config default-builder gcr.io/buildpacks/builder:v1
 	pack build todo:pack
 
-build.ko: install.ko
+build.ko:
 	KO_DOCKER_REPO=${GCR_IMAGE}/ko ko publish ./cmd/todo
 
 manifests:
@@ -41,14 +41,14 @@ manifests:
 	helm template --name todo ./deploy/helm -f ./deploy/config/qa.yaml > ./deploy/manifests/qa/output.yaml
 	helm template --name todo ./deploy/helm -f ./deploy/config/stage.yaml > ./deploy/manifests/stage/output.yaml
 
-manifests.helm: install.helm
+manifests.helm:
 	rm -rf ./deploy/output/helm/*
 	helm template --name todo ./deploy/helm -f ./deploy/config/dev.yaml > ./deploy/output/helm.yaml
 
-manifests.ko: install.ko
+manifests.ko:
 	KO_DOCKER_REPO=${GCR_IMAGE}/ko ko resolve -f ./deploy/ko > ./deploy/output/ko.yaml
 
-manifests.tanka: install.tanka
+manifests.tanka:
 	rm -rf ./deploy/output/tanka/*
 	tk export ./deploy/output/tanka ./deploy/tanka/environments/dev
 
@@ -58,13 +58,13 @@ env:
 	kubectl create ns qa --dry-run -oyaml | kubectl apply -f -
 	kubectl create ns cd --dry-run -oyaml | kubectl apply -f -
 
-cluster: install.kind
+cluster:
 	kind create cluster --name ${CLUSTER_NAME}
 
 clean:
 	kubectl delete -f ./output/ --ignore-not-found=true
 
-argo.setup: install.argocd
+argo.setup:
 	kubectl create namespace argocd --dry-run -o yaml | kubectl apply -f -
 	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj-labs/applicationset/v0.1.0/manifests/install.yaml
@@ -75,7 +75,7 @@ argo:
 	argocd app sync qa
 	argocd app sync stage
 
-ui: install.octant
+ui:
 	octant
 
 deps: install.golangci-lint install.kind install.skaffold install.ko install.tanka install.helm install.pack install.argocd install.octant
