@@ -1,13 +1,13 @@
 # Production Readiness
 
-What does it mean for an application to be production ready? Thankfully industry leaders a lot smarter than me have given this a lot of thought!
+What does it mean for an application to be production-ready? Thankfully, industry leaders a lot smarter than me have given this a lot of thought!
 
-If you havn't come across these resources yet, it is recommended to go through them first:
+If you haven't come across these resources yet, it is recommended  to go through them before reading this post:
 
-- 📹 [Building Production Ready Application][production-ready-talk] by Michael Kehoe
+- 📹 [Building Production-Ready Application][production-ready-talk] by Michael Kehoe
 - 📕 [Production-Ready Microservices][production-readiness-book] by Susan J. Fowler
 
-There are 8 main tenets of production readiness that are highlighted in these resources:
+There are eight fundamental tenets of production readiness highlighted in these resources:
 
 - 🔗 Stability
 - 🎯 Reliability
@@ -20,16 +20,16 @@ There are 8 main tenets of production readiness that are highlighted in these re
 
 As technology evolves, several tools have emerged which helps achieve the tenets of production readiness mentioned above. This repo is part of a 4 series blog post which covers cloud native tooling that enables application production readiness. The blogs can be found [here](https://tejasc.com/).
 
-**DISCLAIMER** The tools mentioned in this blog are just examples of tools available, and might not be the best suited for your usecase. The blog can serve as a starting point to research the tools that is most appropriate for your ecosystem.
+**DISCLAIMER** The tools mentioned in this blog are just examples of tools available and might not be the best suited for your use case. The blog can serve as a starting point to research the most appropriate tools for your ecosystem.
 
 ### Assumptions
 
 I'll be exploring application that are:
 
-- Running in kubernetes
+- Running in Kubernetes
 - Exploring tools that are Cloud Native mostly from [CNCF Landscape][cncf-landspace]
 
-> WARNING: The applications themselves are not production ready. The apps and tools in this repo are solely for demo and experimenting purporses.
+> WARNING: The applications themselves are not production ready. The apps and tools in this repo are solely for demo and experimenting.
 
 ## Stability and Reliability
 
