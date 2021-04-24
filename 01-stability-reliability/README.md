@@ -52,7 +52,7 @@ The command builds a docker image using the instructions defined in the [Dockerf
 
 <img src="./assets/kaniko.png" width="100px" height="100px" align="left" style="padding-right:15px"/>
 
-kaniko is a tool for building container images from a Dockerfile without requiring a Docker daemon. Kaniko executes each commands in userspace which enables building container images in environments that can't easily or securely run a Docker daemon, such as a kubernetes cluster. Kaniko can also be used to speed up builds by caching image layers.
+Kaniko is a tool for building container images from a Dockerfile without requiring a Docker daemon. Kaniko executes each command in userspace, enabling building container images in environments that can't easily or securely run a Docker daemon, such as a Kubernetes cluster. Kaniko can also be used to speed up builds by caching image layers.
 
 | Open Source                                              | Maintained By | First Release |
 | -------------------------------------------------------- | ------------- | ------------- |
@@ -70,7 +70,7 @@ Builds a docker image using kaniko and the instructions defined in the [Dockerfi
 
 <img src="./assets/buildpack.png" width="100px" height="100px" align="left" style="padding-right:15px"/>
 
-Buildpack can build images without dockerfiles, it uses auto-detection instead. It tests groups of buildpacks against your source code and the first group that fits your source code will become the selected set of buildpacks. Criteria is specific to each buildpack – for instance, an NPM buildpack looks for a package.json, and a Go buildpack looks for Go source files.
+Buildpack can build images without a Dockerfile. It uses auto-detection instead. It tests groups of buildpacks against your source code, and the first group that fits your source code will become the selected set of buildpacks. Criteria are specific to each buildpack – for instance, an NPM buildpack looks for a package.json, and a Go buildpack looks for Go source files, etc.
 
 | Open Source                                  | Maintained By | First Release |
 | -------------------------------------------- | ------------- | ------------- |
@@ -220,7 +220,7 @@ Skaffold consumes a [skaffold.yaml](./skaffold.yaml) to define image building, t
 
 <img src="./assets/octant.png" width="130px" height="40px" align="left" style="padding-right:15px"/>
 
-A UI for developers which helps developers understand the kubernetes resources deployed in a cluster. Allows for easy navigation of cluster and resources management. The pluggable nature of the UI makes it ideal for writing devex extensions.
+A UI for developers which helps developers understand the Kubernetes resources deployed in a cluster. Allows for easy navigation of cluster and resources management. The pluggable nature of the UI makes it ideal for writing devex extensions.
 
 | Open Source                                      | Maintained By | First Release |
 | ------------------------------------------------ | ------------- | ------------- |
@@ -245,7 +245,7 @@ Bunch of buzz words coming through:
 
 Declarative, GitOps continuous delivery tool for Kubernetes.
 
-Enables gitops for kube manifests, which translates to using Git repositories as the source of truth for defining the desired application state.
+Enables gitops for Kube manifests, which translates to using Git repositories as the source of truth for defining the desired application state. To specify multiple environments for a service, `ApplicationSet` controller must also be installed.
 
 | Open Source                                   | Maintained By | First Release |
 | --------------------------------------------- | ------------- | ------------- |
