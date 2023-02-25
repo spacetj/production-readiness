@@ -29,8 +29,7 @@ golang.org/x/crypto/acme/autocert
 golang.org/x/crypto/pbkdf2
 # golang.org/x/net v0.0.0-20210331212208-0fccb6fa2b5c
 golang.org/x/net/idna
-# golang.org/x/sys v0.0.0-20210402192133-700132347e07
-golang.org/x/sys/internal/unsafeheader
+# golang.org/x/sys v0.1.0
 golang.org/x/sys/unix
 # golang.org/x/text v0.3.6
 golang.org/x/text/secure/bidirule
