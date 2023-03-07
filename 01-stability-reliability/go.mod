@@ -16,5 +16,5 @@ require (
 	golang.org/x/sys v0.0.0-20210402192133-700132347e07 // indirect
 	golang.org/x/text v0.3.6 // indirect
 	google.golang.org/protobuf v1.25.0 // indirect
-	mellium.im/sasl v0.2.1 // indirect
+	mellium.im/sasl v0.3.1 // indirect
 )

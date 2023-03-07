@@ -37,5 +37,5 @@ golang.org/x/text/secure/bidirule
 golang.org/x/text/transform
 golang.org/x/text/unicode/bidi
 golang.org/x/text/unicode/norm
-# mellium.im/sasl v0.2.1
+# mellium.im/sasl v0.3.1
 mellium.im/sasl
